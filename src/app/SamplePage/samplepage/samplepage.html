@@ -1,0 +1,21 @@
+<h1>{{JudulHalaman}}</h1>
+<p>{{subJudul}}</p>
+
+<button (click)="tambahklik()">Klik saya</button>
+<p>jumlah klik : {{jumlahklik}}</p>
+
+
+<p></p>
+
+<button [disabled]="!apakahtombolaktif">Tombol Ini Aktif</button>
+<p [class.aktif]="!apakahtombolaktif" [class.nonaktif]="!apakahtombolaktif">Status Tombol {{ apakahtombolaktif }}</p>
+
+<h3>Daftar User</h3>
+
+<ul>
+    <li *ngFor="let nama of daftarnama; let i = index;">
+        {{i + 1 }}. {{sapaPengguna(nama)}}
+        <button (click)="hapusNama(i)">Hapus</button>
+
+    </li>
+</ul>
