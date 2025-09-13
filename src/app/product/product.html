@@ -32,7 +32,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let p of products; let i = index">
+            <tr *ngFor="let p of products let i = index">
               <td>{{ i + 1 }}</td>
               <td>{{ p.PRODUCT_CODE }}</td>
               <td>{{ p.PRODUCT_NAME }}</td>

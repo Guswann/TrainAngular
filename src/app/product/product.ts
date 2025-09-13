@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
 import { ProductService } from '../Service/product.service';
@@ -12,11 +12,14 @@ export class Product {
   faPlus = faPlus;
   faPencil = faPencil;
   products: any[] = [];
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,
+    private cdr: ChangeDetectorRef // biar ke load
+  ) { }
 
   ngOnInit(): void {
     this.productService.getAll().subscribe(data => {
       this.products = data;
+      this.cdr.detectChanges(); // biar ke load productnya
       console.log(this.products);
     });
   }
