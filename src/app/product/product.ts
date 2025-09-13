@@ -9,7 +9,7 @@ import { faPencil } from '@fortawesome/free-solid-svg-icons';
   styleUrl: './product.css'
 })
 export class Product {
-faPlus = faPlus;
+  faPlus = faPlus;
   faPencil = faPencil;
   products = [
     { code: 'P001', name: 'Laptop Pro 14"', category: 'Elektronik', price: 15000000, stock: 12 },
