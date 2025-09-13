@@ -15,12 +15,15 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { Product } from './product/product';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { Home } from './home/home';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     App,
     SamplePage,
-    Product
+    Product,
+    Home
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     PaginationModule.forRoot(),
     BsDropdownModule.forRoot(),
     CollapseModule.forRoot(),
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
+
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
