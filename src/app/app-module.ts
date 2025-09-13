@@ -17,13 +17,15 @@ import { Product } from './product/product';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Home } from './home/home';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductForm } from './product/product-form/product-form';
 
 @NgModule({
   declarations: [
     App,
     SamplePage,
     Product,
-    Home
+    Home,
+    ProductForm
   ],
   imports: [
     BrowserModule,

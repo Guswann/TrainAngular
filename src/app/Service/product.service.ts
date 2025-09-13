@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
@@ -8,9 +8,15 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
   private apiUrl = 'https://localhost:7057/api/Products'
-  
+
   constructor(private http: HttpClient) { }
   getAll(): Observable<any> {
     return this.http.get<any>(this.apiUrl + "/GetAll");
+  }
+
+  createData(model: any): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const option = { headers: headers };
+    return this.http.post<any>(this.apiUrl + "/CreateData", model, option);
   }
 }
