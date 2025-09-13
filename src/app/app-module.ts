@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { SamplePage } from './SamplePage/samplepage/samplepage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
@@ -18,6 +18,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Home } from './home/home';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductForm } from './product/product-form/product-form';
+import { Category } from './category/category';
+import { CategoryForm } from './category/category-form/category-form';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ProductForm } from './product/product-form/product-form';
     SamplePage,
     Product,
     Home,
-    ProductForm
+    ProductForm,
+    Category,
+    CategoryForm
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,8 @@ import { ProductForm } from './product/product-form/product-form';
     BsDropdownModule.forRoot(),
     CollapseModule.forRoot(),
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
 
   ],
   providers: [

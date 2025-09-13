@@ -1,7 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
 import { ProductService } from '../Service/product.service';
+import { first } from 'rxjs/operators';
+
 @Component({
   selector: 'app-products',
   standalone: false,
@@ -11,7 +13,9 @@ import { ProductService } from '../Service/product.service';
 export class Product {
   faPlus = faPlus;
   faPencil = faPencil;
+  fatrash = faTrash;
   products: any[] = [];
+  router: any;
   constructor(private productService: ProductService,
     private cdr: ChangeDetectorRef // biar ke load
   ) { }
@@ -23,6 +27,27 @@ export class Product {
       console.log(this.products);
     });
   }
+
+  deleteData(id: string): void {
+    if (confirm('Are you sure to DELETE THIS DATA?')) {
+      this.productService.deleteData(id).pipe(first()).subscribe({
+        next: () => {
+          alert('Data Deleted Successfully.');
+          this.router.navigate(['/products'])
+        },
+        error: err => {
+          if (err.status === 204) {
+            alert('Data Deleted Successfully.');
+            this.ngOnInit();
+          } else {
+            alert('Error: angular kintil');
+            console.error('Error details:', err);
+          }
+        }
+      })
+    }
+  }
+
 
   // products = [
   //   { code: 'P001', name: 'Laptop Pro 14"', category: 'Elektronik', price: 15000000, stock: 12 },

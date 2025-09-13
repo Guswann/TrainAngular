@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
-  private apiUrl = 'https://localhost:7057/api/Products'
+export class CategoryProductService {
+  private apiUrl = 'https://localhost:7057/api/Category'
 
   constructor(private http: HttpClient) { }
   getAll(): Observable<any> {
@@ -39,7 +38,7 @@ export class ProductService {
   // }
 
   deleteData(id: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/DeleteData/${id}`);
+    return this.http.delete(`${this.apiUrl}/DeleteData/${encodeURIComponent(id)}`);
   }
 
   // deleteData(id: string): Observable<any> {
