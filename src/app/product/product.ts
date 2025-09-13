@@ -1,9 +1,8 @@
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
-
 @Component({
-  selector: 'app-product',
+  selector: 'app-products',
   standalone: false,
   templateUrl: './product.html',
   styleUrl: './product.css'
